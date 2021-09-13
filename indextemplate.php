@@ -29,7 +29,7 @@ session_start();
 
 // Start the login process by sending the user to Discord's authorization page
 if(get('action') == 'login') {
-
+echo "get actione login";
   $params = array(
     'client_id' => OAUTH2_CLIENT_ID,
     'redirect_uri' => 'https://yoursite.location/ifyouneedit',
@@ -45,7 +45,7 @@ if(get('action') == 'login') {
 
 // When Discord redirects the user back here, there will be a "code" and "state" parameter in the query string
 if(get('code')) {
-
+echo "get code";
   // Exchange the auth code for a token
   $token = apiRequest($tokenURL, array(
     "grant_type" => "authorization_code",
@@ -62,6 +62,7 @@ if(get('code')) {
 }
 
 if(session('access_token')) {
+echo "sessions access token";
   $user = apiRequest($apiURLBase);
 
   echo '<h3>Logged In</h3>';
@@ -71,6 +72,7 @@ if(session('access_token')) {
   echo '</pre>';
 
 } else {
+echo "session access token else";
   echo '<h3>Not logged in</h3>';
   echo '<p><a href="?action=login">Log In</a></p>';
 }
@@ -78,6 +80,7 @@ if(session('access_token')) {
 
 if(get('action') == 'logout') {
   // This should logout you
+echo "action logout";
   logout($revokeURL, array(
     'token' => session('access_token'),
     'token_type_hint' => 'access_token',
@@ -89,6 +92,7 @@ if(get('action') == 'logout') {
   die();
 }
 
+echo "apirequest url:".$url;
 function apiRequest($url, $post=FALSE, $headers=array()) {
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
