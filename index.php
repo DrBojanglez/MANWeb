@@ -33,8 +33,8 @@ ini_set('max_execution_time', 300); //300 seconds = 5 minutes. In case if your C
 
 error_reporting(E_ALL);
 
-define('OAUTH2_CLIENT_ID', '882515185917636678');
-define('OAUTH2_CLIENT_SECRET', 'tMjEVj8NJMaVRqG9N0dj-14BRqppzJsF');
+define('OAUTH2_CLIENT_ID', 'sampleid');
+define('OAUTH2_CLIENT_SECRET', 'samplesecret');
 
 $authorizeURL = 'https://discord.com/api/oauth2/authorize';
 $tokenURL = 'https://discord.com/api/oauth2/token';
@@ -62,7 +62,7 @@ if(get('action') == 'login') {
 
   $params = array(
     'client_id' => OAUTH2_CLIENT_ID,
-    'redirect_uri' => 'http://man.dudeboobs.com',
+    'redirect_uri' => 'yoururl',
     'response_type' => 'code',
     'scope' => 'identify guilds'
   );
