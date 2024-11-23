@@ -24,7 +24,7 @@
 
 <?php
 
-	
+
 	
 
 ini_set('display_errors', 1);
@@ -102,9 +102,6 @@ if(session('access_token')) {
 	echo '<span class="navbar-brand "><img class="rounded float-start" style="width: 2em;" src="http://cdn.discordapp.com/avatars/' . $did . '/' . $ava . '.png">&nbsp'; 
 	echo $user->username;
 	echo '<font style="font-size: 8px;">#' . $user->discriminator . '<div class="float-end " style="padding-top: 10px;"><center><a href="?action=logout"><button style="font-size: 8px;" type="button" class="btn btn-secondary">Log Out</button></a></center></font></div></span>';
-
-
-
 	
 	?>
 </div> 
